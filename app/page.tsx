@@ -39,7 +39,7 @@ export default function Home() {
           <a href="#approach">合作方式</a>
           <a href="#contact">聯絡我們</a>
         </nav>
-        <a className="header-cta" href="mailto:hello@lefty-erp.com?subject=想聊聊數位系統">聊聊你的需求 <span>↗</span></a>
+        <a className="header-cta" href="mailto:info@lefthandedmkt.com?subject=想聊聊數位系統">聊聊你的需求 <span>↗</span></a>
       </header>
 
       <section className="hero" id="top">
@@ -48,7 +48,7 @@ export default function Home() {
           <h1>讓好生意，<br />長出一套<span>好系統。</span></h1>
           <p>左撇子整合行銷，從商業策略出發，為你設計真正好用的數位系統。整合流程、資料與行銷，讓團隊少一點重工，多一點成長。</p>
           <div className="hero-actions">
-            <a className="button button-primary" href="mailto:hello@lefty-erp.com?subject=預約數位健檢">預約 30 分鐘數位健檢 <span>→</span></a>
+            <a className="button button-primary" href="mailto:info@lefthandedmkt.com?subject=預約數位健檢">預約 30 分鐘數位健檢 <span>→</span></a>
             <a className="text-link" href="#services">看看我們能做什麼 <span>↓</span></a>
           </div>
         </div>
@@ -142,11 +142,11 @@ export default function Home() {
           <span className="kicker light">LET&apos;S BUILD SOMETHING USEFUL</span>
           <h2>你的下一套系統，<br />可以從一場<span>對話</span>開始。</h2>
           <p>說說現在最卡的一件事，我們一起找出適合的起點。</p>
-          <a className="button button-light" href="mailto:hello@lefty-erp.com?subject=我想打造數位系統">開始聊聊 <span>↗</span></a>
+          <a className="button button-light" href="mailto:info@lefthandedmkt.com?subject=我想打造數位系統">開始聊聊 <span>↗</span></a>
         </div>
         <div className="contact-card">
           <span>聯絡信箱</span>
-          <a href="mailto:hello@lefty-erp.com">hello@lefty-erp.com</a>
+          <a href="mailto:info@lefthandedmkt.com">info@lefthandedmkt.com</a>
           <p>通常會在 1–2 個工作天內回覆</p>
         </div>
       </section>
