@@ -29,6 +29,9 @@ const process = [
 export default function Home() {
   return (
     <main>
+      <div className="scroll-progress" aria-hidden="true" />
+      <div className="cursor-glow" aria-hidden="true" />
+      <div className="cursor-ring" aria-hidden="true" />
       <header className="site-header">
         <a className="brand" href="#top" aria-label="左撇子整合行銷首頁">
           <span className="brand-mark">L</span>
@@ -43,7 +46,7 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
-        <div className="hero-copy">
+        <div className="hero-copy reveal reveal-left">
           <div className="eyebrow"><span /> YOUR DIGITAL GROWTH PARTNER</div>
           <h1>讓好生意，<br />長出一套<span>好系統。</span></h1>
           <p>左撇子整合行銷，從商業策略出發，為你設計真正好用的數位系統。整合流程、資料與行銷，讓團隊少一點重工，多一點成長。</p>
@@ -53,10 +56,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hero-visual" aria-label="整合數位系統示意圖">
+        <div className="hero-visual reveal reveal-scale" aria-label="整合數位系統示意圖">
           <div className="orbit orbit-one" />
           <div className="orbit orbit-two" />
-          <div className="system-card">
+          <div className="system-card" data-tilt>
             <div className="system-top"><span>LEFTY OS</span><i>系統運作中</i></div>
             <div className="system-title">今日營運總覽 <b>•••</b></div>
             <div className="metric-grid">
@@ -78,19 +81,19 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="trust-strip">
+      <div className="trust-strip marquee-band">
         <p>從一個卡住的流程，到一套會成長的系統</p>
         <div><span>策略</span><b>＋</b><span>設計</span><b>＋</b><span>開發</span><b>＋</b><span>整合</span></div>
       </div>
 
       <section className="section services" id="services">
-        <div className="section-heading">
+        <div className="section-heading reveal">
           <div><span className="kicker">WHAT WE BUILD</span><h2>不只做工具，<br />我們設計你的<span>成長路徑。</span></h2></div>
           <p>真正有效的數位系統，必須符合你的營運方式。我們拆解問題、重新設計流程，再用適合的技術把它做出來。</p>
         </div>
         <div className="service-list">
           {services.map((service) => (
-            <article className="service-card" key={service.no}>
+            <article className="service-card reveal" data-tilt key={service.no}>
               <div className="service-no">{service.no}</div>
               <h3>{service.title}</h3>
               <p>{service.text}</p>
@@ -102,14 +105,14 @@ export default function Home() {
       </section>
 
       <section className="dark-section" id="approach">
-        <div className="dark-intro">
+        <div className="dark-intro reveal reveal-left">
           <span className="kicker light">HOW WE WORK</span>
           <h2>把複雜的事，<br />一起做得<span>清楚。</span></h2>
           <p>你不需要先懂技術。只要告訴我們目標和目前的困難，剩下的，我們會一步一步陪你拆解。</p>
         </div>
-        <div className="process-list">
+        <div className="process-list reveal">
           {process.map((item, index) => (
-            <div className="process-item" key={item[0]}>
+            <div className="process-item" key={item[0]} style={{"--step-delay": `${index * 90}ms`} as React.CSSProperties}>
               <span>0{index + 1}</span>
               <h3>{item[0]}</h3>
               <p>{item[1]}</p>
@@ -119,12 +122,12 @@ export default function Home() {
       </section>
 
       <section className="belief section">
-        <div className="belief-card">
+        <div className="belief-card reveal reveal-left" data-tilt>
           <div className="big-quote">“</div>
           <blockquote>最好的系統，不是功能最多，<br />而是團隊<span>真的願意每天使用。</span></blockquote>
           <p>所以我們把商業邏輯、使用體驗與技術放在同一張桌上討論。</p>
         </div>
-        <div className="fit-list">
+        <div className="fit-list reveal">
           <span className="kicker">IS THIS YOU?</span>
           <h2>這些情況，<br />我們很能幫上忙。</h2>
           <ul>
@@ -138,13 +141,13 @@ export default function Home() {
 
       <section className="cta-section" id="contact">
         <div className="cta-grid" />
-        <div className="cta-copy">
+        <div className="cta-copy reveal reveal-left">
           <span className="kicker light">LET&apos;S BUILD SOMETHING USEFUL</span>
           <h2>你的下一套系統，<br />可以從一場<span>對話</span>開始。</h2>
           <p>說說現在最卡的一件事，我們一起找出適合的起點。</p>
           <a className="button button-light" href="mailto:info@lefthandedmkt.com?subject=我想打造數位系統">開始聊聊 <span>↗</span></a>
         </div>
-        <div className="contact-card">
+        <div className="contact-card reveal reveal-scale" data-tilt>
           <span>聯絡信箱</span>
           <a href="mailto:info@lefthandedmkt.com">info@lefthandedmkt.com</a>
           <p>通常會在 1–2 個工作天內回覆</p>
@@ -156,6 +159,7 @@ export default function Home() {
         <p>策略思考 × 數位設計 × 系統整合</p>
         <div><span>© 2026 LEFTY INTEGRATED MARKETING</span><a href="#top">回到頂端 ↑</a></div>
       </footer>
+      <script src="/effects.js" defer />
     </main>
   );
 }
