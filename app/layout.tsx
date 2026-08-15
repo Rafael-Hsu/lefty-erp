@@ -37,11 +37,31 @@ const organizationSchema = {
   "@type": "Organization",
   "@id": "https://lefty-erp.com/#organization",
   name: "左撇子整合行銷",
-  alternateName: "LEFTY",
+  legalName: "左撇子整合行銷有限公司",
+  alternateName: ["LEFTY", "LEFTY Integrated Marketing Co., Ltd."],
   url: "https://lefty-erp.com/",
   email: "info@lefthandedmkt.com",
+  telephone: "+886-958-588-655",
+  taxID: "50833892",
   description: "從商業策略出發，協助企業規劃 ERP、CRM、進銷存、會員平台、行銷自動化與系統整合。",
   areaServed: { "@type": "Country", name: "Taiwan" },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "大成街3巷7號",
+    addressLocality: "潭子區",
+    addressRegion: "臺中市",
+    addressCountry: "TW",
+  },
+  founder: {
+    "@type": "Person",
+    "@id": "https://lefty-erp.com/about/#wei-hsiang-hsu",
+    name: "徐偉翔",
+    jobTitle: "創辦人暨執行長",
+  },
+  sameAs: [
+    "https://lefthandedmkt.com/",
+    "https://www.facebook.com/lefthanded.mkt",
+  ],
 };
 
 const websiteSchema = {

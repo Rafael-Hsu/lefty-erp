@@ -23,7 +23,22 @@ test("server renders the Lefty homepage with canonical identity", async () => {
   assert.match(html, /info@lefthandedmkt\.com/);
   assert.match(html, /"@type":"Organization"/);
   assert.match(html, /"@type":"WebSite"/);
+  assert.match(html, /"taxID":"50833892"/);
+  assert.match(html, /"telephone":"\+886-958-588-655"/);
   assert.match(html, /介面示意/);
+});
+
+test("about page publishes verifiable company and founder identity", async () => {
+  const response = await render("/about");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /左撇子整合行銷有限公司/);
+  assert.match(html, /LEFTY Integrated Marketing Co\., Ltd\./);
+  assert.match(html, /50833892/);
+  assert.match(html, /臺中市潭子區大成街3巷7號/);
+  assert.match(html, /徐偉翔/);
+  assert.match(html, /公開授課紀錄/);
+  assert.match(html, /"@type":"Person"/);
 });
 
 test("solution and guide pages expose answer-first structured content", async () => {

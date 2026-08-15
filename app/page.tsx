@@ -149,7 +149,7 @@ export default function Home() {
 
       <footer>
         <a className="brand footer-brand" href="#top"><span className="brand-mark">L</span><span>LEFTY <b>左撇子整合行銷</b></span></a>
-        <p>lefty-erp.com 是由左撇子整合行銷營運的數位系統服務網站。</p>
+        <p>lefty-erp.com 是由左撇子整合行銷有限公司營運的數位系統服務網站。</p>
         <div><span>© 2026 LEFTY INTEGRATED MARKETING</span><a href="#top">回到頂端 ↑</a></div>
       </footer>
       <script src="/effects.js" defer />

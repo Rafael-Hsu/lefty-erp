@@ -28,8 +28,8 @@ export function SiteFooter() {
   return (
     <footer>
       <BrandLink />
-      <p>lefty-erp.com 是由左撇子整合行銷營運的數位系統服務網站。</p>
-      <div><span>© 2026 LEFTY INTEGRATED MARKETING</span><a href="mailto:info@lefthandedmkt.com">info@lefthandedmkt.com</a></div>
+      <p>lefty-erp.com 是由左撇子整合行銷有限公司營運的數位系統服務網站。</p>
+      <div><span>© 2026 LEFTY INTEGRATED MARKETING CO., LTD.</span><span><a href="tel:+886958588655">0958-588-655</a> · <a href="mailto:info@lefthandedmkt.com">info@lefthandedmkt.com</a></span></div>
     </footer>
   );
 }
