@@ -46,7 +46,13 @@ for (const route of routes) {
   await writeFile(join(routeDir, "index.html"), html);
 }
 
-await cp(join(process.cwd(), "dist/client/_next"), join(outputDir, "_next"), { recursive: true });
+for (const assetDir of ["css", "_vinext_fonts"]) {
+  await cp(
+    join(process.cwd(), "dist/client/_next/static", assetDir),
+    join(outputDir, "_next/static", assetDir),
+    { recursive: true },
+  );
+}
 for (const asset of ["og.png", "effects.js", "robots.txt", "sitemap.xml"]) {
   await cp(join(process.cwd(), "public", asset), join(outputDir, asset));
 }
