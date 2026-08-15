@@ -1,23 +1,5 @@
-const services = [
-  {
-    no: "01",
-    title: "營運流程數位化",
-    text: "把報價、訂單、庫存、請款與專案進度串成同一套流程，資訊不再散落在 Excel 和聊天室。",
-    tags: ["ERP / CRM", "進銷存", "專案管理"],
-  },
-  {
-    no: "02",
-    title: "品牌網站與會員平台",
-    text: "從品牌定位、內容策略到網站與會員功能，讓每一次瀏覽都能累積資料、信任與下一次互動。",
-    tags: ["企業官網", "會員系統", "電商整合"],
-  },
-  {
-    no: "03",
-    title: "行銷自動化整合",
-    text: "串接廣告、表單、LINE、Email 與儀表板，讓名單被妥善追蹤，也讓團隊看見真正有效的成長。",
-    tags: ["MarTech", "API 串接", "數據儀表板"],
-  },
-];
+import { guidePages, solutionPages } from "./content";
+import Link from "next/link";
 
 const process = [
   ["理解", "釐清商業目標、使用者與卡住團隊的日常流程。"],
@@ -38,9 +20,9 @@ export default function Home() {
           <span>LEFTY <b>左撇子整合行銷</b></span>
         </a>
         <nav aria-label="主要導覽">
-          <a href="#services">服務內容</a>
-          <a href="#approach">合作方式</a>
-          <a href="#contact">聯絡我們</a>
+          <Link href="/solutions/">解決方案</Link>
+          <Link href="/guides/">數位指南</Link>
+          <Link href="/about/">關於我們</Link>
         </nav>
         <a className="header-cta" href="mailto:info@lefthandedmkt.com?subject=想聊聊數位系統">聊聊你的需求 <span>↗</span></a>
       </header>
@@ -60,8 +42,8 @@ export default function Home() {
           <div className="orbit orbit-one" />
           <div className="orbit orbit-two" />
           <div className="system-card" data-tilt>
-            <div className="system-top"><span>LEFTY OS</span><i>系統運作中</i></div>
-            <div className="system-title">今日營運總覽 <b>•••</b></div>
+            <div className="system-top"><span>LEFTY OS</span><i>介面示意</i></div>
+            <div className="system-title">營運儀表板示意 <b>•••</b></div>
             <div className="metric-grid">
               <div><small>本月營收</small><strong>+28.6%</strong><em>↗ 穩定成長</em></div>
               <div><small>有效名單</small><strong>1,284</strong><em>+ 136 本週</em></div>
@@ -76,7 +58,7 @@ export default function Home() {
               <span>新名單</span><b>→</b><span>自動分流</span><b>→</b><span>完成追蹤</span>
             </div>
           </div>
-          <div className="float-chip chip-a"><b>✓</b><span>流程已自動化<small>每週省下 12 小時</small></span></div>
+          <div className="float-chip chip-a"><b>✓</b><span>流程自動化<small>自動化節點示意</small></span></div>
           <div className="float-chip chip-b"><b>↗</b><span>資料同步完成<small>剛剛</small></span></div>
         </div>
       </section>
@@ -92,16 +74,27 @@ export default function Home() {
           <p>真正有效的數位系統，必須符合你的營運方式。我們拆解問題、重新設計流程，再用適合的技術把它做出來。</p>
         </div>
         <div className="service-list">
-          {services.map((service) => (
-            <article className="service-card reveal" data-tilt key={service.no}>
-              <div className="service-no">{service.no}</div>
+          {solutionPages.map((service, index) => (
+            <Link className="service-card reveal" data-tilt key={service.slug} href={`/solutions/${service.slug}/`}>
+              <div className="service-no">0{index + 1}</div>
               <h3>{service.title}</h3>
-              <p>{service.text}</p>
-              <div className="tags">{service.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+              <p>{service.summary}</p>
+              <div className="tags"><span>{service.eyebrow}</span></div>
               <div className="card-arrow">↗</div>
-            </article>
+            </Link>
           ))}
         </div>
+      </section>
+
+      <section className="home-guides section">
+        <div className="section-heading reveal">
+          <div><span className="kicker">DIGITAL SYSTEM GUIDES</span><h2>先把問題說清楚，<br />再決定要做<span>什麼系統。</span></h2></div>
+          <p>我們把常見的選型、預算與導入問題整理成可直接引用的答案，幫助團隊在找廠商前先建立共同語言。</p>
+        </div>
+        <div className="home-guide-grid">
+          {guidePages.slice(0, 4).map((guide) => <Link className="home-guide-card reveal" href={`/guides/${guide.slug}/`} key={guide.slug}><span>{guide.category}</span><h3>{guide.title}</h3><p>{guide.summary}</p><b>閱讀指南 ↗</b></Link>)}
+        </div>
+        <Link className="directory-link" href="/guides/">查看全部 10 篇數位指南 <span>→</span></Link>
       </section>
 
       <section className="dark-section" id="approach">
@@ -156,7 +149,7 @@ export default function Home() {
 
       <footer>
         <a className="brand footer-brand" href="#top"><span className="brand-mark">L</span><span>LEFTY <b>左撇子整合行銷</b></span></a>
-        <p>策略思考 × 數位設計 × 系統整合</p>
+        <p>lefty-erp.com 是由左撇子整合行銷營運的數位系統服務網站。</p>
         <div><span>© 2026 LEFTY INTEGRATED MARKETING</span><a href="#top">回到頂端 ↑</a></div>
       </footer>
       <script src="/effects.js" defer />
