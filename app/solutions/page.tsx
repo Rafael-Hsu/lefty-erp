@@ -25,7 +25,7 @@ export default function SolutionsPage() {
           ))}
         </div>
       </section>
-      <ContactBanner subject="想討論數位系統解決方案" />
+      <ContactBanner />
     </PageShell>
   );
 }

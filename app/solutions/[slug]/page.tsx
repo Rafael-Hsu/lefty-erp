@@ -78,7 +78,7 @@ export default async function SolutionDetailPage({ params }: PageProps) {
         <span className="kicker">QUESTIONS & ANSWERS</span><h2>常見問題</h2>
         {solution.faqs.map(faq => <details className="reveal" key={faq.question}><summary>{faq.question}<span>＋</span></summary><p>{faq.answer}</p></details>)}
       </section>
-      <ContactBanner subject={`想討論${solution.title}`} />
+      <ContactBanner />
     </PageShell>
   );
 }

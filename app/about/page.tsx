@@ -39,6 +39,7 @@ const personSchema = {
   "@type": "Person",
   "@id": "https://lefty-erp.com/about/#wei-hsiang-hsu",
   name: "徐偉翔",
+  alternateName: "Rafael",
   jobTitle: "創辦人暨執行長",
   worksFor: { "@id": "https://lefty-erp.com/#organization" },
   knowsAbout: ["數位行銷", "生成式 AI 應用", "品牌社群經營", "企業數位系統", "流程整合"],
@@ -64,7 +65,7 @@ export default function AboutPage() {
       </section>
 
       <section className="founder-section reveal" id="wei-hsiang-hsu">
-        <div className="founder-profile"><span className="kicker light">FOUNDER & INSTRUCTOR</span><h2>徐偉翔</h2><strong>左撇子整合行銷有限公司<br />創辦人暨執行長</strong></div>
+        <div className="founder-profile"><span className="kicker light">FOUNDER & INSTRUCTOR</span><h2>Rafael</h2><strong>徐偉翔｜左撇子整合行銷有限公司<br />創辦人暨執行長</strong></div>
         <div className="founder-copy"><p>長期投入數位行銷、品牌社群經營、生成式 AI 應用與企業數位工具實作，並以企業經營者與業界講師身分參與大學、政府青年創業基地及人才培育課程。</p><p>授課內容著重把工具放進真實工作流程，涵蓋品牌定位、內容行銷、廣告與影音、數據分析、客戶經營，以及 AI 輔助行銷與專案協作。</p></div>
       </section>
 
@@ -90,12 +91,13 @@ export default function AboutPage() {
           <div><dt>地址</dt><dd>臺中市潭子區大成街3巷7號</dd></div>
           <div><dt>服務區域</dt><dd>以台灣企業為主，支援遠端專案協作</dd></div>
           <div><dt>聯絡電話</dt><dd><a href="tel:+886958588655">0958-588-655</a></dd></div>
-          <div><dt>聯絡信箱</dt><dd><a href="mailto:info@lefthandedmkt.com">info@lefthandedmkt.com</a></dd></div>
+          <div><dt>LINE 官方帳號</dt><dd><a href="https://lin.ee/vdgr99a" target="_blank" rel="noreferrer">加入 LINE 好友 ↗</a></dd></div>
+          <div><dt>聯絡信箱</dt><dd>info@lefthandedmkt.com</dd></div>
           <div><dt>主要服務</dt><dd>企業數位系統規劃、設計、開發與整合</dd></div>
         </dl>
         <div className="official-links"><a href="https://lefthandedmkt.com/" target="_blank" rel="noreferrer">公司官方網站 ↗</a><a href="https://www.facebook.com/lefthanded.mkt" target="_blank" rel="noreferrer">Facebook 官方粉絲專頁 ↗</a></div>
       </section>
-      <ContactBanner subject="想認識左撇子的數位系統服務" />
+      <ContactBanner />
     </PageShell>
   );
 }

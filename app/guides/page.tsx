@@ -23,7 +23,7 @@ export default function GuidesPage() {
           </Link>
         ))}
       </section>
-      <ContactBanner subject="想討論企業數位系統規劃" />
+      <ContactBanner />
     </PageShell>
   );
 }

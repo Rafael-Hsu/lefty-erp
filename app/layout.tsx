@@ -56,7 +56,15 @@ const organizationSchema = {
     "@type": "Person",
     "@id": "https://lefty-erp.com/about/#wei-hsiang-hsu",
     name: "徐偉翔",
+    alternateName: "Rafael",
     jobTitle: "創辦人暨執行長",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    telephone: "+886-958-588-655",
+    url: "https://lin.ee/vdgr99a",
+    availableLanguage: ["zh-Hant"],
   },
   sameAs: [
     "https://lefthandedmkt.com/",

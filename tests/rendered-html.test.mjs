@@ -21,6 +21,8 @@ test("server renders the Lefty homepage with canonical identity", async () => {
   assert.match(html, /<title>左撇子整合行銷/);
   assert.match(html, /rel="canonical" href="https:\/\/lefty-erp\.com"/);
   assert.match(html, /info@lefthandedmkt\.com/);
+  assert.match(html, /https:\/\/lin\.ee\/vdgr99a/);
+  assert.doesNotMatch(html, /mailto:/);
   assert.match(html, /"@type":"Organization"/);
   assert.match(html, /"@type":"WebSite"/);
   assert.match(html, /"taxID":"50833892"/);
@@ -37,7 +39,10 @@ test("about page publishes verifiable company and founder identity", async () =>
   assert.match(html, /50833892/);
   assert.match(html, /臺中市潭子區大成街3巷7號/);
   assert.match(html, /徐偉翔/);
+  assert.match(html, />Rafael</);
   assert.match(html, /公開授課紀錄/);
+  assert.match(html, /加入 LINE 好友/);
+  assert.doesNotMatch(html, /mailto:/);
   assert.match(html, /"@type":"Person"/);
 });
 

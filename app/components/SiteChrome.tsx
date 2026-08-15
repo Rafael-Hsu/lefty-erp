@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 
+const lineUrl = "https://lin.ee/vdgr99a";
+
 export function BrandLink() {
   return (
     <Link className="brand" href="/" aria-label="左撇子整合行銷首頁">
@@ -19,7 +21,7 @@ export function SiteHeader() {
         <Link href="/guides/">數位指南</Link>
         <Link href="/about/">關於我們</Link>
       </nav>
-      <a className="header-cta" href="mailto:info@lefthandedmkt.com?subject=想聊聊數位系統">聊聊你的需求 <span>↗</span></a>
+      <a className="header-cta" href={lineUrl} target="_blank" rel="noreferrer">加入 LINE 洽詢 <span>↗</span></a>
     </header>
   );
 }
@@ -29,7 +31,7 @@ export function SiteFooter() {
     <footer>
       <BrandLink />
       <p>lefty-erp.com 是由左撇子整合行銷有限公司營運的數位系統服務網站。</p>
-      <div><span>© 2026 LEFTY INTEGRATED MARKETING CO., LTD.</span><span><a href="tel:+886958588655">0958-588-655</a> · <a href="mailto:info@lefthandedmkt.com">info@lefthandedmkt.com</a></span></div>
+      <div><span>© 2026 LEFTY INTEGRATED MARKETING CO., LTD.</span><span><a href="tel:+886958588655">0958-588-655</a> · <a href={lineUrl} target="_blank" rel="noreferrer">LINE 官方帳號</a></span></div>
     </footer>
   );
 }
@@ -52,11 +54,11 @@ export function JsonLd({ data }: { data: Record<string, unknown> }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
 }
 
-export function ContactBanner({ subject }: { subject: string }) {
+export function ContactBanner() {
   return (
     <section className="inner-cta reveal">
       <div><span className="kicker">START WITH THE REAL PROBLEM</span><h2>先從最卡的一條流程開始。</h2><p>把目前使用的表單、試算表或操作方式告訴我們，我們會協助釐清適合的改善起點。</p></div>
-      <a className="button button-primary" href={`mailto:info@lefthandedmkt.com?subject=${encodeURIComponent(subject)}`}>預約數位健檢 <span>↗</span></a>
+      <a className="button button-primary" href={lineUrl} target="_blank" rel="noreferrer">加入 LINE 預約健檢 <span>↗</span></a>
     </section>
   );
 }

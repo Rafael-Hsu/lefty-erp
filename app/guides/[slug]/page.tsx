@@ -56,7 +56,7 @@ export default async function GuideDetailPage({ params }: PageProps) {
         </div>
         <aside className="related-box"><span className="kicker">RELATED SOLUTIONS</span><h2>相關解決方案</h2><div>{guide.relatedSolutions.map(solutionSlug => { const solution = solutionBySlug.get(solutionSlug); return solution ? <Link key={solutionSlug} href={`/solutions/${solutionSlug}/`}>{solution.title}<span>↗</span></Link> : null; })}</div></aside>
       </article>
-      <ContactBanner subject={`想討論：${guide.title}`} />
+      <ContactBanner />
     </PageShell>
   );
 }
