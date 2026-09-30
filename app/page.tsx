@@ -44,6 +44,13 @@ export default function Home() {
           {/* This static export intentionally uses a pre-compressed WebP instead of a runtime image optimizer. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/lefty-pixel-workshop.webp" alt="左撇子數位系統小隊在像素風工作坊整合 ERP、CRM、資料與自動化流程" width="2200" height="1238" fetchPriority="high" />
+          <div className="character-motion character-erp" aria-hidden="true" />
+          <div className="character-motion character-sprout" aria-hidden="true" />
+          <div className="character-motion character-crm" aria-hidden="true" />
+          <div className="character-motion character-cloud" aria-hidden="true" />
+          <div className="data-pulse pulse-green" aria-hidden="true" />
+          <div className="data-pulse pulse-coral" aria-hidden="true" />
+          <div className="data-pulse pulse-blue" aria-hidden="true" />
           <div className="pixel-status"><i /><span>LEFTY SYSTEM LAB<small>系統小隊連線中</small></span></div>
           <div className="pixel-spark spark-one" aria-hidden="true">✦</div>
           <div className="pixel-spark spark-two" aria-hidden="true">＋</div>

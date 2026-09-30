@@ -29,6 +29,8 @@ test("server renders the Lefty homepage with canonical identity", async () => {
   assert.match(html, /"telephone":"\+886-958-588-655"/);
   assert.match(html, /lefty-pixel-workshop\.webp/);
   assert.match(html, /LEFTY SYSTEM LAB/);
+  assert.match(html, /character-sprout/);
+  assert.match(html, /character-cloud/);
 });
 
 test("about page publishes verifiable company and founder identity", async () => {
