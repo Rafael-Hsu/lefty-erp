@@ -399,7 +399,10 @@ main>.site-header:not(.inner-header) .header-cta:hover { background:var(--lime);
 .process-item { border-color:#343967; }
 .belief-card { border-radius:26px; background:#e7ff94; box-shadow:10px 10px 0 var(--night); }
 .fit-list li { border-radius:12px; padding-inline:10px; }
-.cta-section { width:calc(100% - 32px); max-width:1408px; min-height:500px; margin:20px auto; border-radius:30px; overflow:hidden; background:linear-gradient(135deg,#c9ff3d,#e9ffad); border:1px solid var(--ink); }
+.cta-section { width:calc(100% - 32px); max-width:1408px; min-height:500px; margin:20px auto; padding:clamp(76px,7vw,100px) clamp(32px,5vw,76px); grid-template-columns:minmax(0,1fr) minmax(330px,400px); align-items:end; gap:clamp(48px,7vw,100px); border-radius:30px; overflow:hidden; background:linear-gradient(135deg,#c9ff3d,#e9ffad); border:1px solid var(--ink); }
+.cta-copy { min-width:0; }
+.cta-copy h2 { max-width:760px; font-size:clamp(48px,5vw,72px); text-wrap:balance; }
+.cta-copy p { max-width:620px; }
 .contact-card { border-radius:22px; background:var(--night); box-shadow:9px 9px 0 var(--purple); }
 
 .directory-card,.content-block,.answer-box,.deliverable-grid,.inner-cta,.related-box,.about-copy,.identity-note,.credential-card,.home-guide-card { border-radius:20px; }
@@ -420,6 +423,9 @@ main>.site-header:not(.inner-header) .header-cta:hover { background:var(--lime);
   .service-list { gap:14px; }
   .dark-section { grid-template-columns:1fr; gap:64px; }
   .dark-intro h2 { max-width:660px; }
+  .cta-section { grid-template-columns:1fr; align-items:center; gap:52px; }
+  .cta-copy h2 { max-width:760px; }
+  .contact-card { width:min(100%,480px); }
 }
 @media (max-width:640px) {
   main>.site-header:not(.inner-header) { border-radius:0 0 17px 17px; }
@@ -439,6 +445,8 @@ main>.site-header:not(.inner-header) .header-cta:hover { background:var(--lime);
   .sprite-strip { width:calc(100% - 24px); justify-content:flex-start; overflow-x:auto; flex-wrap:nowrap; padding:0 3px 6px; scrollbar-width:none; }
   .sprite-strip span { flex:none; }
   .trust-strip,.dark-section,.cta-section { width:calc(100% - 20px); border-radius:22px; }
+  .cta-section { padding:72px 22px; gap:42px; }
+  .cta-copy h2 { font-size:clamp(40px,12vw,54px); }
   .service-card { border-radius:20px; box-shadow:5px 5px 0 var(--ink); }
   .belief-card { border-radius:22px; }
 }
