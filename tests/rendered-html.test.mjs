@@ -50,19 +50,26 @@ test("about page publishes verifiable company and founder identity", async () =>
 });
 
 test("solution and guide pages expose answer-first structured content", async () => {
-  const [solutionResponse, guideResponse] = await Promise.all([
+  const [solutionResponse, guideResponse, newGuideResponse] = await Promise.all([
     render("/solutions/erp-system"),
     render("/guides/when-does-a-business-need-erp"),
+    render("/guides/erp-implementation-timeline"),
   ]);
   assert.equal(solutionResponse.status, 200);
   assert.equal(guideResponse.status, 200);
-  const [solution, guide] = await Promise.all([solutionResponse.text(), guideResponse.text()]);
+  assert.equal(newGuideResponse.status, 200);
+  const [solution, guide, newGuide] = await Promise.all([solutionResponse.text(), guideResponse.text(), newGuideResponse.text()]);
   assert.match(solution, /客製 ERP 系統開發/);
   assert.match(solution, /先說結論/);
   assert.match(solution, /"@type":"Service"/);
   assert.match(guide, /中小企業什麼時候需要 ERP/);
   assert.match(guide, /簡短答案/);
   assert.match(guide, /"@type":"Article"/);
+  assert.match(guide, /"@type":"BreadcrumbList"/);
+  assert.match(guide, /作者與審閱/);
+  assert.match(guide, /接著閱讀/);
+  assert.match(newGuide, /ERP 導入需要多久/);
+  assert.match(newGuide, /2026\.10\.01/);
 });
 
 test("crawler files cover every published route", async () => {
@@ -71,10 +78,12 @@ test("crawler files cover every published route", async () => {
     readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8"),
   ]);
   assert.match(robots, /User-agent: \*/);
+  assert.match(robots, /User-agent: OAI-SearchBot/);
   assert.match(robots, /Allow: \/$/m);
   assert.match(robots, /https:\/\/lefty-erp\.com\/sitemap\.xml/);
-  assert.equal((sitemap.match(/<url>/g) ?? []).length, 20);
+  assert.equal((sitemap.match(/<url>/g) ?? []).length, 28);
   assert.match(sitemap, /\/solutions\/erp-system\//);
   assert.match(sitemap, /\/guides\/when-does-a-business-need-erp\//);
+  assert.match(sitemap, /\/guides\/erp-implementation-timeline\//);
   assert.match(sitemap, /\/about\//);
 });

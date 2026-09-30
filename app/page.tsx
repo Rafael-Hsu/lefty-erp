@@ -95,7 +95,7 @@ export default function Home() {
         <div className="home-guide-grid">
           {guidePages.slice(0, 4).map((guide) => <Link className="home-guide-card reveal" href={`/guides/${guide.slug}/`} key={guide.slug}><span>{guide.category}</span><h3>{guide.title}</h3><p>{guide.summary}</p><b>閱讀指南 ↗</b></Link>)}
         </div>
-        <Link className="directory-link" href="/guides/">查看全部 10 篇數位指南 <span>→</span></Link>
+        <Link className="directory-link" href="/guides/">查看全部 {guidePages.length} 篇數位指南 <span>→</span></Link>
       </section>
 
       <section className="dark-section" id="approach">

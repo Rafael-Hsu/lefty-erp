@@ -15,6 +15,14 @@ const guideSlugs = [
   "crm-implementation-checklist",
   "inventory-system-selection",
   "marketing-automation-first-workflow",
+  "erp-implementation-timeline",
+  "system-requirements-document",
+  "crm-cost-estimation",
+  "erp-data-migration-checklist",
+  "api-integration-cost-timeline",
+  "line-crm-integration",
+  "system-maintenance-cost",
+  "digital-transformation-roadmap",
 ];
 const routes = [
   "/",

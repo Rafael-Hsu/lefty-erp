@@ -21,6 +21,9 @@ export type GuidePage = {
   answer: string;
   sections: { heading: string; paragraphs: string[]; bullets?: string[] }[];
   relatedSolutions: string[];
+  relatedGuides?: string[];
+  publishedAt?: string;
+  updatedAt?: string;
 };
 
 export const solutionPages: SolutionPage[] = [
@@ -237,6 +240,134 @@ export const guidePages: GuidePage[] = [
       { heading: "基本流程範例", paragraphs: ["使用者提交表單後，系統確認同意與欄位，依地區或需求分派負責人，同時寄出確認訊息；若一定時間未處理，再提醒主管。"] },
       { heading: "不要忽略例外", paragraphs: ["重複名單、無效聯絡方式、夜間提交、退訂與負責人休假，都需要明確處理規則。"] },
     ], relatedSolutions: ["marketing-automation", "crm-system"],
+  },
+  {
+    slug: "erp-implementation-timeline",
+    category: "ERP 導入",
+    title: "ERP 導入需要多久？中小企業時程怎麼排？",
+    summary: "用流程數量、資料品質、串接範圍與決策速度，估算中小企業 ERP 的合理導入時程。",
+    answer: "中小企業 ERP 導入通常應以階段估算，而不是只問一個總工期。單一核心流程約可用 8 至 12 週完成盤點、設計、開發與試運行；若包含多部門、舊資料移轉或外部 API 串接，通常需要 3 至 6 個月以上。真正影響時程的，常是需求決策與資料整理速度。",
+    sections: [
+      { heading: "先用四個變因估算", paragraphs: ["評估要納入幾條流程、多少種使用角色、舊資料是否乾淨，以及需要串接哪些外部平台。功能頁數不是可靠的工期單位，流程例外與驗收責任才是。"], bullets: ["核心流程與例外情境數量", "使用者角色、權限與簽核層級", "舊資料格式與清理難度", "API、會計、電商或物流串接範圍"] },
+      { heading: "一個務實的四階段時程", paragraphs: ["先用 1 至 2 週盤點目標與流程，再用 2 至 4 週完成原型與資料結構。開發應切成可驗收模組，最後保留真實資料測試、教育與平行運作時間。"] },
+      { heading: "怎麼避免時程一直延後？", paragraphs: ["每一階段都要有單一決策人、明確驗收條件與變更紀錄。新需求可進入下一版，不要在接近上線時持續擴大第一階段範圍。"] },
+    ],
+    relatedSolutions: ["erp-system", "system-integration"],
+    relatedGuides: ["erp-data-migration-checklist", "system-requirements-document", "erp-cost-estimation"],
+    publishedAt: "2026-10-01",
+    updatedAt: "2026-10-01",
+  },
+  {
+    slug: "system-requirements-document",
+    category: "需求規劃",
+    title: "客製系統需求書怎麼寫？",
+    summary: "把目標、使用角色、流程、資料與驗收方式寫清楚，讓需求書能支持估價與開發。",
+    answer: "好的系統需求書不必先寫技術規格，而要清楚回答：為什麼要做、誰會使用、目前流程如何運作、哪些例外必須處理，以及完成後如何驗收。先描述真實工作情境，再由開發團隊轉成資料結構與技術方案，通常比直接列功能名稱更準確。",
+    sections: [
+      { heading: "需求書至少要有六項內容", paragraphs: ["每項需求都應能對應一個商業目標與使用情境。若只寫『需要會員管理』，不同人對範圍的理解很容易完全不同。"], bullets: ["要改善的問題與衡量指標", "使用者角色與權限", "目前流程與期望流程", "輸入、輸出與必要欄位", "例外情境與錯誤處理", "可被測試的驗收條件"] },
+      { heading: "用情境描述取代模糊功能", paragraphs: ["例如把『自動通知』改寫成：新諮詢送出後 5 分鐘內，依服務類型指派負責人，並在 LINE 通知；若 24 小時未處理，再提醒主管。這樣才能估算規則、資料與串接。"] },
+      { heading: "先排優先級，再請廠商估價", paragraphs: ["將需求分成第一階段必須、上線後應該與未來可選。估價時要求每一階段列出交付項目、前提與不包含範圍，才能公平比較方案。"] },
+    ],
+    relatedSolutions: ["erp-system", "custom-web-app", "system-integration"],
+    relatedGuides: ["erp-implementation-timeline", "erp-cost-estimation", "custom-vs-off-the-shelf-erp"],
+    publishedAt: "2026-10-01",
+    updatedAt: "2026-10-01",
+  },
+  {
+    slug: "crm-cost-estimation",
+    category: "CRM 導入",
+    title: "CRM 建置費用怎麼估算？",
+    summary: "從名單來源、銷售流程、自動化、報表與串接需求，拆解 CRM 的建置成本。",
+    answer: "CRM 費用通常由軟體授權、初始設定或客製、資料清理移轉、外部串接、教育訓練與後續維護組成。若只是標準名單與銷售階段，可先用套裝工具；若需要特殊分派、報價流程或跨平台資料同步，才需要把客製開發納入預算。",
+    sections: [
+      { heading: "影響費用的五個範圍", paragraphs: ["使用人數只是其中一項。真正拉開建置差異的，是銷售流程的例外、資料來源與自動化深度。"], bullets: ["帳號數量與權限層級", "銷售階段與自訂欄位", "舊名單清理與合併規則", "表單、LINE、Email 或 ERP 串接", "儀表板、通知與自動分派"] },
+      { heading: "先算最小可用版本", paragraphs: ["先讓名單進得來、責任分得清、跟進看得見，再加入培育與進階分析。第一階段若無法被團隊穩定使用，增加更多功能只會提高維護成本。"] },
+      { heading: "估價時要問哪些問題？", paragraphs: ["確認費用是否包含流程訪談、資料匯入、API 額度、教育訓練、保固與版本更新，也要釐清停用服務後能否完整匯出客戶資料。"] },
+    ],
+    relatedSolutions: ["crm-system", "marketing-automation", "system-integration"],
+    relatedGuides: ["crm-implementation-checklist", "line-crm-integration", "marketing-automation-first-workflow"],
+    publishedAt: "2026-10-01",
+    updatedAt: "2026-10-01",
+  },
+  {
+    slug: "erp-data-migration-checklist",
+    category: "ERP 導入",
+    title: "ERP 上線前，舊資料怎麼整理與移轉？",
+    summary: "用資料盤點、清理、轉換、驗證與切換計畫，降低 ERP 上線時的資料風險。",
+    answer: "資料移轉不是把所有 Excel 原樣倒入新系統。應先決定哪些資料仍有營運價值，再統一客戶、商品與供應商主檔，處理重複與缺漏，完成測試匯入後由業務單位抽樣驗證。正式切換前還要訂出資料凍結時間與回復方案。",
+    sections: [
+      { heading: "先分成主檔、交易與歷史資料", paragraphs: ["客戶、商品、供應商屬於主檔；訂單、採購與庫存異動屬於交易資料。歷史資料未必全部匯入，可依查詢、法規與分析需要決定保留方式。"] },
+      { heading: "移轉檢查清單", paragraphs: ["每一批資料都要有來源、負責人、轉換規則與驗證結果，避免只有技術團隊知道數字怎麼來。"], bullets: ["統一編碼、日期、單位與必填欄位", "建立重複資料合併規則", "記錄新舊欄位對照", "先做測試匯入與總數核對", "抽查金額、庫存與關聯資料"] },
+      { heading: "正式切換怎麼安排？", paragraphs: ["訂出最後資料更新時間，安排增量匯入、使用者驗證與舊系統唯讀期。若驗證未通過，也要有回到原流程的明確條件。"] },
+    ],
+    relatedSolutions: ["erp-system", "system-integration"],
+    relatedGuides: ["excel-to-business-system", "erp-implementation-timeline", "why-digital-transformation-fails"],
+    publishedAt: "2026-10-01",
+    updatedAt: "2026-10-01",
+  },
+  {
+    slug: "api-integration-cost-timeline",
+    category: "系統整合",
+    title: "API 串接費用與時程怎麼估？",
+    summary: "從文件、權限、資料流、錯誤處理與測試環境，判斷 API 串接的真正工作量。",
+    answer: "API 串接不能只按端點數量估價。費用與時程取決於第三方文件完整度、授權方式、資料轉換、同步頻率、錯誤重試、測試環境與對方審核流程。需求明確且文件完整的單向串接較快；涉及雙向同步、金流或庫存時，應預留更多驗證與例外處理。",
+    sections: [
+      { heading: "估算前要取得什麼？", paragraphs: ["先拿到正式 API 文件、測試帳號、速率限制與欄位範例，並確認方案是否真的開放所需權限。只有平台名稱，通常無法做可靠估價。"] },
+      { heading: "最常被忽略的成本", paragraphs: ["除了正常資料傳送，還要處理重複事件、逾時、欄位變更、憑證更新、人工補送與紀錄查詢。這些機制決定串接上線後是否可維護。"] },
+      { heading: "如何縮短開發時程？", paragraphs: ["先選一個方向與少數必要欄位完成端到端測試，再擴充更多事件。由雙方各指定技術與業務窗口，也能減少等待權限和規則確認的時間。"] },
+    ],
+    relatedSolutions: ["system-integration", "custom-web-app"],
+    relatedGuides: ["line-ecommerce-accounting-integration", "line-crm-integration", "system-requirements-document"],
+    publishedAt: "2026-10-01",
+    updatedAt: "2026-10-01",
+  },
+  {
+    slug: "line-crm-integration",
+    category: "LINE 整合",
+    title: "LINE 官方帳號怎麼串接 CRM？",
+    summary: "釐清好友身分、同意、標籤、事件與客服交接，規劃可維護的 LINE CRM 整合。",
+    answer: "LINE 官方帳號串接 CRM 的核心，是在取得適當同意後，把 LINE 使用者與企業既有客戶資料可靠對應，並將加入好友、表單、對話或點擊等必要事件寫入 CRM。不要只追求群發；應先設計身分綁定、客服交接、退訂與資料權限。",
+    sections: [
+      { heading: "先決定如何識別同一位客戶", paragraphs: ["LINE 使用者識別碼不能直接等同手機或 Email。常見作法是透過會員登入、綁定表單或一次性驗證，把兩邊資料建立可追溯的關聯。"] },
+      { heading: "值得優先串接的事件", paragraphs: ["先從對營運有明確用途的事件開始，例如加入好友來源、諮詢表單、預約完成、客服狀態或購買後通知。"], bullets: ["新好友與來源標記", "表單或預約完成", "諮詢分派與待回覆提醒", "訂單、出貨或服務通知", "封鎖、退訂與同意狀態"] },
+      { heading: "個資與訊息規則不能省略", paragraphs: ["告知資料用途，只同步完成流程所需的資訊，限制可存取人員，並保留同意與退訂狀態。行銷訊息也應依平台政策與使用者選擇發送。"] },
+    ],
+    relatedSolutions: ["crm-system", "marketing-automation", "system-integration"],
+    relatedGuides: ["crm-implementation-checklist", "marketing-automation-first-workflow", "line-ecommerce-accounting-integration"],
+    publishedAt: "2026-10-01",
+    updatedAt: "2026-10-01",
+  },
+  {
+    slug: "system-maintenance-cost",
+    category: "系統維護",
+    title: "客製系統上線後，維護費用包含什麼？",
+    summary: "分清楚主機、監控、修復、平台更新、資安與功能迭代，避免低估長期持有成本。",
+    answer: "客製系統維護通常包含主機與第三方服務費、備份與監控、安全與套件更新、錯誤修復、使用者支援，以及另行評估的新功能。保固只處理原規格缺陷，維護則確保系統在瀏覽器、平台 API 與營運流程持續變動時仍能可靠運作。",
+    sections: [
+      { heading: "固定成本與變動成本", paragraphs: ["網域、主機、簡訊、Email、地圖或 AI 服務多半依方案或用量計費；維運人力則可採月費時數、事件計費或服務等級合約。"] },
+      { heading: "維護合約要寫清楚什麼？", paragraphs: ["至少寫明服務時段、回應與修復目標、備份頻率、監控範圍、第三方費用、緊急事件定義，以及未使用時數能否遞延。"] },
+      { heading: "如何控制長期成本？", paragraphs: ["保留原始碼與文件、建立測試與版本紀錄、定期移除不用的功能，並把例行維護和新需求分開管理。可維護性應在開發階段就納入，而不是上線後才補救。"] },
+    ],
+    relatedSolutions: ["custom-web-app", "system-integration", "erp-system"],
+    relatedGuides: ["erp-cost-estimation", "api-integration-cost-timeline", "system-requirements-document"],
+    publishedAt: "2026-10-01",
+    updatedAt: "2026-10-01",
+  },
+  {
+    slug: "digital-transformation-roadmap",
+    category: "數位轉型",
+    title: "中小企業數位轉型應該先做什麼？",
+    summary: "從營運瓶頸、資料基礎與可衡量流程，排出不浪費預算的數位轉型路線。",
+    answer: "中小企業數位轉型應先選出一個高頻、跨人員、容易出錯且能衡量成果的流程，而不是先買一套最大系統。先建立共同主檔與責任，再完成一條端到端流程，確認團隊採用後，才逐步擴到 CRM、ERP、庫存與自動化。",
+    sections: [
+      { heading: "先盤點問題，不先列軟體", paragraphs: ["找出等待時間、重複輸入、人工對帳、交接遺漏與管理盲點，估算它們每月耗費的時間、錯誤與商機。這些數字才是排序依據。"] },
+      { heading: "第一階段怎麼選？", paragraphs: ["選擇能在數週到數月內完成、資料取得可行、負責人明確，而且成果能被量化的流程。"], bullets: ["發生頻率高且影響客戶", "牽涉人數有限但可代表核心流程", "有清楚的開始、結束與責任人", "可用時間、錯誤率或轉換率衡量"] },
+      { heading: "把路線圖變成持續改善", paragraphs: ["每一階段都應記錄基準值、目標、使用率與新問題。若團隊沒有採用，就先修正流程與教育，不急著開發下一個模組。"] },
+    ],
+    relatedSolutions: ["erp-system", "crm-system", "system-integration"],
+    relatedGuides: ["why-digital-transformation-fails", "excel-to-business-system", "erp-implementation-timeline"],
+    publishedAt: "2026-10-01",
+    updatedAt: "2026-10-01",
   },
 ];
 
