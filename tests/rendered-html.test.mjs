@@ -27,7 +27,8 @@ test("server renders the Lefty homepage with canonical identity", async () => {
   assert.match(html, /"@type":"WebSite"/);
   assert.match(html, /"taxID":"50833892"/);
   assert.match(html, /"telephone":"\+886-958-588-655"/);
-  assert.match(html, /介面示意/);
+  assert.match(html, /lefty-pixel-workshop\.webp/);
+  assert.match(html, /LEFTY SYSTEM LAB/);
 });
 
 test("about page publishes verifiable company and founder identity", async () => {

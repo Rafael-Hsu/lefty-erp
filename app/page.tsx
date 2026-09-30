@@ -40,30 +40,22 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hero-visual reveal reveal-scale" aria-label="整合數位系統示意圖">
-          <div className="orbit orbit-one" />
-          <div className="orbit orbit-two" />
-          <div className="system-card" data-tilt>
-            <div className="system-top"><span>LEFTY OS</span><i>介面示意</i></div>
-            <div className="system-title">營運儀表板示意 <b>•••</b></div>
-            <div className="metric-grid">
-              <div><small>本月營收</small><strong>+28.6%</strong><em>↗ 穩定成長</em></div>
-              <div><small>有效名單</small><strong>1,284</strong><em>+ 136 本週</em></div>
-            </div>
-            <div className="chart">
-              <div className="chart-head"><span>營運成長</span><small>近 6 個月</small></div>
-              <div className="chart-bars">
-                {[36, 48, 43, 64, 70, 92].map((height, i) => <i key={i} style={{height: `${height}%`}} />)}
-              </div>
-            </div>
-            <div className="flow-row">
-              <span>新名單</span><b>→</b><span>自動分流</span><b>→</b><span>完成追蹤</span>
-            </div>
-          </div>
-          <div className="float-chip chip-a"><b>✓</b><span>流程自動化<small>自動化節點示意</small></span></div>
-          <div className="float-chip chip-b"><b>↗</b><span>資料同步完成<small>剛剛</small></span></div>
+        <div className="hero-visual pixel-stage reveal reveal-scale">
+          {/* This static export intentionally uses a pre-compressed WebP instead of a runtime image optimizer. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/lefty-pixel-workshop.webp" alt="左撇子數位系統小隊在像素風工作坊整合 ERP、CRM、資料與自動化流程" width="2200" height="1238" fetchPriority="high" />
+          <div className="pixel-status"><i /><span>LEFTY SYSTEM LAB<small>系統小隊連線中</small></span></div>
+          <div className="pixel-spark spark-one" aria-hidden="true">✦</div>
+          <div className="pixel-spark spark-two" aria-hidden="true">＋</div>
         </div>
       </section>
+
+      <div className="sprite-strip" aria-label="左撇子數位系統服務">
+        <span><i className="sprite-dot dot-lime" />成長資料精靈</span>
+        <span><i className="sprite-dot dot-purple" />ERP 整理員</span>
+        <span><i className="sprite-dot dot-coral" />CRM 小信使</span>
+        <span><i className="sprite-dot dot-blue" />系統整合助手</span>
+      </div>
 
       <div className="trust-strip marquee-band">
         <p>從一個卡住的流程，到一套會成長的系統</p>

@@ -53,7 +53,7 @@ for (const assetDir of ["css", "_vinext_fonts"]) {
     { recursive: true },
   );
 }
-for (const asset of ["og.png", "effects.js", "robots.txt", "sitemap.xml"]) {
+for (const asset of ["og.png", "lefty-pixel-workshop.webp", "effects.js", "robots.txt", "sitemap.xml"]) {
   await cp(join(process.cwd(), "public", asset), join(outputDir, asset));
 }
 await writeFile(join(outputDir, "CNAME"), "lefty-erp.com\n");
