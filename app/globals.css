@@ -390,8 +390,12 @@ main>.site-header:not(.inner-header) .header-cta:hover { background:var(--lime);
 .home-guide-card { border:1px solid var(--ink); border-radius:22px; background:#fffdf7; box-shadow:5px 5px 0 var(--ink); }
 .home-guide-card:nth-child(2),.home-guide-card:nth-child(3) { background:#f0eaff; }
 .home-guide-card:hover { box-shadow:2px 2px 0 var(--ink); transform:translate(3px,3px); }
-.dark-section { width:calc(100% - 32px); max-width:1408px; margin:0 auto; border-radius:30px; background:var(--night); overflow:hidden; }
+.dark-section { width:calc(100% - 32px); max-width:1408px; margin:0 auto; padding:clamp(84px,8vw,120px) clamp(32px,5vw,76px); grid-template-columns:minmax(320px,.9fr) minmax(420px,1.1fr); gap:clamp(44px,6vw,88px); border-radius:30px; background:var(--night); overflow:hidden; }
 .dark-section:before { background:radial-gradient(circle at 85% 10%,rgba(169,140,255,.22),transparent 32%),radial-gradient(circle at 15% 90%,rgba(118,207,255,.14),transparent 28%); }
+.dark-intro { min-width:0; }
+.dark-intro h2 { max-width:560px; font-size:clamp(44px,4.5vw,64px); text-wrap:balance; }
+.dark-intro p { max-width:480px; }
+.process-list { min-width:0; }
 .process-item { border-color:#343967; }
 .belief-card { border-radius:26px; background:#e7ff94; box-shadow:10px 10px 0 var(--night); }
 .fit-list li { border-radius:12px; padding-inline:10px; }
@@ -414,6 +418,8 @@ main>.site-header:not(.inner-header) .header-cta:hover { background:var(--lime);
   .hero:before { background:linear-gradient(90deg,rgba(8,10,36,.98) 0%,rgba(8,10,36,.88) 51%,rgba(8,10,36,.1) 100%),linear-gradient(0deg,rgba(8,10,36,.2),transparent); }
   .pixel-stage { margin:0; }
   .service-list { gap:14px; }
+  .dark-section { grid-template-columns:1fr; gap:64px; }
+  .dark-intro h2 { max-width:660px; }
 }
 @media (max-width:640px) {
   main>.site-header:not(.inner-header) { border-radius:0 0 17px 17px; }
